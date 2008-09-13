@@ -17,6 +17,7 @@ class Entry(models.Model):
         verbose_name = _('Entry')
         verbose_name_plural = _('Entries')
         get_latest_by = 'created'
+        ordering = ['-created', 'title']
 
     def __unicode__(self):
         return self.title
