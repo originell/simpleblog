@@ -8,9 +8,9 @@ class Entry(models.Model):
     created = models.DateTimeField(editable=False)
     modified = models.DateTimeField(editable=False)
 
-    title = models.CharField(_('Titel'), max_length=79)
+    title = models.CharField(_('Title'), max_length=79)
     slug = models.SlugField(unique_for_date='created')
-    body = models.TextField(_('Eintrag'))
+    body = models.TextField(_('Post'))
     body_html = models.TextField(editable=False)
 
     class Meta:
