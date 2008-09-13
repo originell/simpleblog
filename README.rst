@@ -11,12 +11,12 @@ a hopefully simple blog app without too much bloat. Maybe it turns into an *uber
 Requirements
 ============
 
-* pygments_
+* pygments_ >= 0.10
 * docutils_
 
 and of course
 
-+ python_
++ python_ >= 2.3
 + django_ >= 1.0
 
 .. _pygments: http://pygments.org/
