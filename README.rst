@@ -34,9 +34,9 @@ Help
 ========
 
 + To use syntax highlighting in blog entries (replace *python* with any other language):
-    \.. sourcecode:: python
+    "\.. sourcecode:: python
 
-    \   print 'Your code goes here!'
+       print 'Your code goes here!'"
 
 .. _pygments: http://pygments.org/
 .. _docutils: http://docutils.sourceforge.net/
