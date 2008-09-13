@@ -2,6 +2,7 @@ from docutils.core import publish_parts
 from docutils.writers.html4css1 import Writer
 import rst_pygments
 
+# thx to zerok and bartTC
 def make_rst(text):
     rst = publish_parts(
         text,
