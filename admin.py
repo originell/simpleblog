@@ -1,6 +1,6 @@
 import datetime
 from django.contrib import admin
-from simpleblog.models import Entry
+from models import Entry
 
 class EntryAdmin(admin.ModelAdmin):
 
