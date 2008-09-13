@@ -16,6 +16,7 @@ class Entry(models.Model):
     class Meta:
         verbose_name = _('Entry')
         verbose_name_plural = _('Entries')
+        get_latest_by = 'created'
 
     def __unicode__(self):
         return self.title
