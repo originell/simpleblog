@@ -15,6 +15,9 @@ class RSSLatestEntries(Feed):
     def items(self):
         return Entry.objects.order_by('-created')[:set_len]
 
+    def item_pubdate(self, item):
+        return item.created
+
 class AtomLatestEntries(RSSLatestEntries):
     feed_type = Atom1Feed
     subtitle = RSSLatestEntries.description
