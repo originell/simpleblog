@@ -6,7 +6,7 @@ django-simpleblog
 is
 --
 
-a hopefully simple blog app without too much bloat. Maybe it turns into an *uber-bloated* app, let's see what I'll do with it :-)
+a hopefully simple blog app without too much bloat. Maybe it turns into an *uber-bloated* app, let's see what I'll do with it :-) Basically it's just a practice project.
 
 Requirements
 ============
