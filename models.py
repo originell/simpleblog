@@ -27,9 +27,10 @@ class Entry(models.Model):
         super(Entry, self).save()
 
     def get_absolute_url(self):
-        return ('entry_detail', (), {'year': self.created.strftime('%Y'),
+        return ('blog_entry_detail', (),
+                                    {'year': self.created.strftime('%Y'),
                                      'month': self.created.strftime('%b'). \
                                               lower(),
                                      'day': self.created.strftime('%d'),
-                                     'slug': self.slug })
+                                     'slug': self.slug },)
     get_absolute_url = models.permalink(get_absolute_url)
