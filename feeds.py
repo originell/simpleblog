@@ -1,4 +1,5 @@
 from django.contrib.syndication.feeds import Feed
+from django.utils.feedgenerator import Atom1Feed
 from models import Entry
 from django.conf import settings
 
