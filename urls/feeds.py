@@ -8,6 +8,6 @@ feeds = {
 
 
 urlpatterns = patterns('',
-    (r'^feeds/(?P<url>.*)%$', 'django.contrib.syndication.views.feed',
+    (r'^feeds/(?P<url>.*)/$', 'django.contrib.syndication.views.feed',
         {'feed_dict': feeds}),
 )
