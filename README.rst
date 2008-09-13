@@ -30,6 +30,14 @@ You can specify the following options in your settings.py:
     - **FEEDLENGTH**
                    Sets the number of items available in both RSS and Atom feeds
 
+Help
+========
+
++ To use syntax highlighting in blog entries (replace *python* with any other language):
+    .. sourcecode:: python
+
+        print 'Your code goes here!'
+
 .. _pygments: http://pygments.org/
 .. _docutils: http://docutils.sourceforge.net/
 .. _python: http://www.python.org/
