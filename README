@@ -1,0 +1,20 @@
+=================
+django-simpleblog
+=================
+
+--
+is
+--
+
+a hopefully simple blog app without too much bloat. Maybe it turns into an *uber-bloated* app, let's see what I'll do with it :-)
+
+Requirements
+============
+
+* pygments
+* docutils
+
+and of course
+
++ python
++ django >= 1.0
