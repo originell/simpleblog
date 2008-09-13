@@ -17,5 +17,5 @@ class RSSLatestEntries(Feed):
 
 class AtomLatestEntries(RSSLatestEntries):
     feed_type = Atom1Feed
-    subtitle = RssSiteNewsFeed.description
+    subtitle = RSSLatestEntries.description
 
