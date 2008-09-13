@@ -7,7 +7,7 @@ class EntryAdmin(admin.ModelAdmin):
     save_on_top = True
     list_per_page = 25
     list_display = ('title', 'created', 'modified')
-    search_fields = ('@title', '@body')
+    search_fields = ('title', 'body')
     date_hierarchy = 'created'
 
     prepopulated_fields = {'slug': ('title',)}
