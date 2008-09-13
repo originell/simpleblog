@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from utils import make_rst
+from utils.make_rst import make_rst
 
 class Entry(models.Model):
     ''' A single (simple) blog entry '''
