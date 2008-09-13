@@ -23,12 +23,12 @@ Options
 =======
 
 You can specify the following options in your settings.py:
-    **FEEDTITLE**
-        Sets the title for both RSS and Atom feeds
-    **FEEDDESCR**
-        Sets the description for both RSS and Atom feeds
-    **FEEDLENGTH**
-        Sets the number of items available in both RSS and Atom feeds
+    - **FEEDTITLE**
+                  Sets the title for both RSS and Atom feeds
+    - **FEEDDESCR**
+                  Sets the description for both RSS and Atom feeds
+    - **FEEDLENGTH**
+                   Sets the number of items available in both RSS and Atom feeds
 
 .. _pygments: http://pygments.org/
 .. _docutils: http://docutils.sourceforge.net/
