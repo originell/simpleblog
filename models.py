@@ -1,6 +1,26 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from utils.make_rst import make_rst
+from django.conf import settings
+
+USE_TAGGING = getattr(settings, 'USE_TAGGING', False)
+
+if USE_TAGGING:
+    # thx to django-photologue
+    try:
+        from tagging.fields import TagField
+        TAGFIELD_HELP = _('Separate tags with spaces, '\
+                          'put quotes around multiple-word tags.')
+    except ImportError:
+        class TagField(models.CharField):
+            def __init__(self, **kwargs):
+                default_kwargs = {'max_length': 255, 'blank': True}
+                default_kwargs.update(kwargs)
+                super(TagField, self).__init__(**default_kwargs)
+            def get_internal_type(self):
+                return 'CharField'
+        TAGFIELD_HELP = _('Django-tagging was not found, ' \
+                          'tags will be treated as plain text.')
 
 class Entry(models.Model):
     ''' A single (simple) blog entry '''
@@ -8,10 +28,13 @@ class Entry(models.Model):
     created = models.DateTimeField(editable=False)
     modified = models.DateTimeField(editable=False)
 
-    title = models.CharField(_('Title'), max_length=79)
+    title = models.CharField(_('title'), max_length=79)
     slug = models.SlugField(unique_for_date='created')
-    body = models.TextField(_('Post'))
+    body = models.TextField(_('post'))
     body_html = models.TextField(editable=False)
+
+    if USE_TAGGING:
+        tags = TagField(help_text=TAGFIELD_HELP, verbose_name=_('tags'))
 
     class Meta:
         verbose_name = _('Entry')
