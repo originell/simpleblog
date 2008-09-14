@@ -27,7 +27,12 @@ if CATEGORIES:
     class Category(models.Model):
         ''' A category '''
 
-        name = models.CharField(_('Categoryname'), max_length=30)
+        name = models.CharField(_('name'), max_length=30)
+
+        class Meta:
+            verbose_name = _('Category')
+            verbose_name_plural = _('Categories')
+            ordering = ['name',]
 
         def __unicode__(self):
             return self.name

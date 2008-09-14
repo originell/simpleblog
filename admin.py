@@ -1,6 +1,12 @@
 import datetime
 from django.contrib import admin
-from models import Entry
+from models import Entry, Category
+
+class CategoryAdmin(admin.ModelAdmin):
+
+    list_display = ('name',)
+
+admin.site.register(Category, CategoryAdmin)
 
 class EntryAdmin(admin.ModelAdmin):
 
