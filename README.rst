@@ -24,13 +24,17 @@ Options
 
 You can specify the following options in your settings.py:
     - **FEEDTITLE**
-                  Sets the title for both RSS and Atom feeds
+                  Sets the title for both RSS and Atom feeds.
+                  *Default:* 'Simpleblog latest 10 entries'
     - **FEEDDESCR**
                   Sets the description for both RSS and Atom feeds
+                  *Default:* ''Simpleblog rss news feed'
     - **FEEDLENGTH**
-                   Sets the number of items available in both RSS and Atom feeds
+                   Sets the number of items available in both RSS and Atom feeds.
+                   *Default:* 10
     - **USE_TAGGING**
                     If True, tags will be enabled. There's a check if django-tagging is installed. If so, then we'll use that as tagfield, otherwise tags will be handled as plain-text.
+                    *Default:* True
 
 Help
 ========

@@ -3,7 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 from utils.make_rst import make_rst
 from django.conf import settings
 
-USE_TAGGING = getattr(settings, 'USE_TAGGING', False)
+USE_TAGGING = getattr(settings, 'USE_TAGGING', True)
 
 if USE_TAGGING:
     # thx to django-photologue
