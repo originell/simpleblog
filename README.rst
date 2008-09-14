@@ -29,6 +29,8 @@ You can specify the following options in your settings.py:
                   Sets the description for both RSS and Atom feeds
     - **FEEDLENGTH**
                    Sets the number of items available in both RSS and Atom feeds
+    - **USE_TAGGING**
+                    If True, tags will be enabled. There's a check if django-tagging is installed. If so, then we'll use that as tagfield, otherwise tags will be handled as plain-text.
 
 Help
 ========
