@@ -3,9 +3,10 @@ from django.utils.translation import ugettext_lazy as _
 from utils.make_rst import make_rst
 from django.conf import settings
 
-USE_TAGGING = getattr(settings, 'USE_TAGGING', True)
+TAGGING = getattr(settings, 'TAGGING', True)
+CATEGORIES = getattr(settings, 'CATEGORIES', True)
 
-if USE_TAGGING:
+if TAGGING:
     # thx to django-photologue
     try:
         from tagging.fields import TagField
@@ -22,6 +23,15 @@ if USE_TAGGING:
         TAGFIELD_HELP = _('Django-tagging was not found, ' \
                           'tags will be treated as plain text.')
 
+if CATEGORIES:
+    class Category(models.Model):
+        ''' A category '''
+
+        name = models.CharField(_('Categoryname'), max_length=30)
+
+        def __unicode__(self):
+            return self.name
+
 class Entry(models.Model):
     ''' A single (simple) blog entry '''
 
@@ -33,7 +43,9 @@ class Entry(models.Model):
     body = models.TextField(_('post'))
     body_html = models.TextField(editable=False)
 
-    if USE_TAGGING:
+    if CATEGORIES:
+        category = models.ForeignKey(Category)
+    if TAGGING:
         tags = TagField(help_text=TAGFIELD_HELP, verbose_name=_('tags'))
 
     class Meta:
