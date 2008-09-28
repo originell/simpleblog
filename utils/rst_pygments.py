@@ -39,7 +39,7 @@
 # ~~~~~~~
 
 # Set to True if you want inline CSS styles instead of classes
-INLINESTYLES = True
+INLINESTYLES = False
 
 from pygments.formatters import HtmlFormatter
 
