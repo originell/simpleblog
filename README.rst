@@ -39,7 +39,7 @@ You can specify the following options in your settings.py:
                    If True, category support will be enabled.
                    *Default:* True
 
-*Note:* If you don't want categories you need to set CATEGORIES to False **before** the initial syncdb. Otherwise you'll need perform the sql changes manually or by using one of the nice db altering utilities for django (django-evolution_, South_,...)
+*Note:* If you don't want categories you need to set CATEGORIES to False **before** the initial syncdb. Otherwise you'll need perform the sql changes manually or by using one of the nice db altering utilities for django (django-evolution_, South_, dmigration_,...)
 
 Help
 ========
@@ -72,3 +72,4 @@ Help
 .. _django: http://www.djangoproject.com/
 .. _django-evolution: http://code.google.com/p/django-evolution/
 .. _South: http://south.aeracode.org/
+.. _dmigration: http://code.google.com/p/dmigrations/
