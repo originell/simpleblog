@@ -50,6 +50,22 @@ Help
 
        print 'Your code goes here!'
 
++ Pygments Syntax CSS Style example (from django-debug-toolbar)::
+
+    .err { color: #ffffff } /* Error */
+    .g { color: #ffffff } /* Generic */
+    .k { color: #F7C757; font-weight: bold } /* Keyword */
+    .o { color: #ffffff } /* Operator */
+    .n { color: #ffffff } /* Name */
+    .mi { color: #92ef3f; font-weight: bold } /* Literal.Number.Integer */
+    .l { color: #ffffff } /* Literal */
+    .x { color: #ffffff } /* Other */
+    .p { color: #ffffff } /* Punctuation */
+    .m { color: #92ef3f; font-weight: bold } /* Literal.Number */
+    .s { color: #0086d2 } /* Literal.String */
+    .w { color: #888888 } /* Text.Whitespace */
+    .il { color: #92ef3f; font-weight: bold } /* Literal.Number.Integer.Long */
+
 .. _pygments: http://pygments.org/
 .. _docutils: http://docutils.sourceforge.net/
 .. _python: http://www.python.org/
