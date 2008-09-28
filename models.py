@@ -10,7 +10,7 @@ if TAGGING:
     # thx to django-photologue
     try:
         from tagging.fields import TagField
-        TAGFIELD_HELP = _('Separate tags with spaces, '\
+        TAGFIELD_HELP = _('Separate tags with spaces, ' \
                           'put quotes around multiple-word tags.')
     except ImportError:
         class TagField(models.CharField):
