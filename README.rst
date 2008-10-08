@@ -66,6 +66,12 @@ Help
     .w { color: #888888 } /* Text.Whitespace */
     .il { color: #92ef3f; font-weight: bold } /* Literal.Number.Integer.Long */
 
++ To get the leatest entry you just have to do the following in a template::
+
+    {% load latest %}
+    ....
+    {% latest_entry as [varname] %}
+
 .. _pygments: http://pygments.org/
 .. _docutils: http://docutils.sourceforge.net/
 .. _python: http://www.python.org/
