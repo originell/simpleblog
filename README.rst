@@ -42,7 +42,7 @@ You can specify the following options in your settings.py:
 *Note:* If you don't want categories you need to set CATEGORIES to False **before** the initial syncdb. Otherwise you'll need perform the sql changes manually or by using one of the nice db altering utilities for django (django-evolution_, South_, dmigration_,...)
 
 Help
-========
+====
 
 + To use syntax highlighting in blog entries (replace *python* with any other language)::
 
