@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import get_app
 from django.utils.translation import ugettext_lazy as _
 from utils.make_rst import make_rst
 from django.conf import settings
@@ -7,19 +8,14 @@ TAGGING = getattr(settings, 'TAGGING', True)
 CATEGORIES = getattr(settings, 'CATEGORIES', True)
 
 if TAGGING:
-    # thx to django-photologue
+    # thx to jezdez
     try:
+        tagging = get_app("tagging")
         from tagging.fields import TagField
         TAGFIELD_HELP = _('Separate tags with spaces, ' \
                           'put quotes around multiple-word tags.')
-    except ImportError:
-        class TagField(models.CharField):
-            def __init__(self, **kwargs):
-                default_kwargs = {'max_length': 255, 'blank': True}
-                default_kwargs.update(kwargs)
-                super(TagField, self).__init__(**default_kwargs)
-            def get_internal_type(self):
-                return 'CharField'
+    except ImproperlyConfigured:
+        from django.models import CharField as TagField
         TAGFIELD_HELP = _('Django-tagging was not found, ' \
                           'tags will be treated as plain text.')
 
@@ -51,7 +47,8 @@ class Entry(models.Model):
     if CATEGORIES:
         category = models.ForeignKey(Category)
     if TAGGING:
-        tags = TagField(help_text=TAGFIELD_HELP, verbose_name=_('tags'))
+        tags = TagField(help_text=TAGFIELD_HELP, max_length=255,
+                        verbose_name=_('tags'))
 
     class Meta:
         verbose_name = _('Entry')
