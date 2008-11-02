@@ -26,4 +26,10 @@ class EntryAdmin(admin.ModelAdmin):
 
         return instance
 
+    def formfield_for_dbfield(self, db_field, **kwargs):
+        field = super(EntryAdmin, self).formfield_for_dbfield(db_field,
+                                                                **kwargs)
+        if db_field.name == 'body':
+            field.widget.attrs['class'] = 'vLargeTextField monospace'
+        return field
 admin.site.register(Entry, EntryAdmin)
