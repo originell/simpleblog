@@ -7,8 +7,10 @@ taken from::
     print HtmlFormatter().get_style_defs()
 
 
-CSS::
+CSS
 ---
+
+and here come the CSS classes::
 
     .hll { background-color: #ffffcc }
     .c { color: #408080; font-style: italic } /* Comment */
