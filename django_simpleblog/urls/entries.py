@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import *
-from simpleblog.models import Entry
+from django_simpleblog.models import Entry
 
 entry_info_dict = {'queryset': Entry.objects.all(),
                    'date_field': 'created',}

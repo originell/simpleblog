@@ -1,11 +1,13 @@
 from django.db import models
 from django.db.models import get_app
 from django.utils.translation import ugettext_lazy as _
-from utils.make_rst import make_rst
 from django.conf import settings
 
 TAGGING = getattr(settings, 'TAGGING', True)
 CATEGORIES = getattr(settings, 'CATEGORIES', True)
+MARKDOWN = getattr(settings, 'MARKDOWN', True)
+MARKDOWN_EXTS = getattr(settings, 'MARKDOWN_EXTS',
+                        ['codehilite', 'tables'])
 
 if TAGGING:
     # thx to jezdez
@@ -33,6 +35,12 @@ if CATEGORIES:
         def __unicode__(self):
             return self.name
 
+if MARKDOWN:
+    try:
+        import markdown
+    except ImportError:
+        print _("Using markdown markup requires the python markdown module")
+
 class Entry(models.Model):
     ''' A single (simple) blog entry '''
 
@@ -42,7 +50,8 @@ class Entry(models.Model):
     title = models.CharField(_('title'), max_length=79)
     slug = models.SlugField(unique_for_date='created')
     body = models.TextField(_('post'))
-    body_html = models.TextField(editable=False)
+    if MARKDOWN:
+        body_html = models.TextField(editable=False)
 
     if CATEGORIES:
         category = models.ForeignKey(Category)
@@ -60,7 +69,8 @@ class Entry(models.Model):
         return self.title
 
     def save(self):
-        self.body_html = make_rst(self.body)
+        if MARKDOWN:
+            self.body_html = markdown.markdown(self.body, MARKDOWN_EXTS)
         super(Entry, self).save()
 
     def get_absolute_url(self):

@@ -1,5 +1,5 @@
 from django import template
-from simpleblog.models import Entry
+from django_simpleblog.models import Entry
 
 register = template.Library()
 

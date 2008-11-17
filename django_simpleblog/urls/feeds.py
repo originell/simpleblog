@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import *
-from simpleblog.feeds import RSSLatestEntries, AtomLatestEntries
+from django_simpleblog.feeds import RSSLatestEntries, AtomLatestEntries
 
 feeds = {
     'rss': RSSLatestEntries,

@@ -41,14 +41,17 @@ You can specify the following options in your settings.py:
 
 *Note:* If you don't want categories you need to set CATEGORIES to False **before** the initial syncdb. Otherwise you'll need perform the sql changes manually or by using one of the nice db altering utilities for django (django-evolution_, South_, dmigration_,...)
 
+    - **MARKDOWN**
+                If True, this will enable Markdown markup language.
+                *Default:* True
+    - **MARKDOWN_EXTS**
+                A list containing available markdown extensions_
+                *Default:* ['codehilite', 'tables']
+
 Help
 ====
 
-+ To use syntax highlighting in blog entries (replace *python* with any other language)::
-
-    .. sourcecode:: python
-
-       print 'Your code goes here!'
++ Here_ you can read how to use syntax highlighting in a post
 
 + Pygments Syntax CSS Style example (from django-debug-toolbar)::
 
@@ -79,3 +82,5 @@ Help
 .. _django-evolution: http://code.google.com/p/django-evolution/
 .. _South: http://south.aeracode.org/
 .. _dmigration: http://code.google.com/p/dmigrations/
+.. _extensions: http://www.freewisdom.org/projects/python-markdown/Available_Extensions
+.. _Here: http://www.freewisdom.org/projects/python-markdown/CodeHilite
