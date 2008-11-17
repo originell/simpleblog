@@ -12,7 +12,7 @@ Requirements
 ============
 
 * pygments_ >= 0.10
-* docutils_
+* markdown_
 
 and of course
 
@@ -81,5 +81,6 @@ Help
 .. _django-evolution: http://code.google.com/p/django-evolution/
 .. _South: http://south.aeracode.org/
 .. _dmigration: http://code.google.com/p/dmigrations/
+.. _markdown: http://www.freewisdom.org/projects/python-markdown/
 .. _extensions: http://www.freewisdom.org/projects/python-markdown/Available_Extensions
 .. _Here: http://www.freewisdom.org/projects/python-markdown/CodeHilite
