@@ -52,21 +52,7 @@ Help
 
 + Here_ you can read how to use syntax highlighting in a post
 
-+ Pygments Syntax CSS Style example (from django-debug-toolbar)::
-
-    .err { color: #ffffff } /* Error */
-    .g { color: #ffffff } /* Generic */
-    .k { color: #F7C757; font-weight: bold } /* Keyword */
-    .o { color: #ffffff } /* Operator */
-    .n { color: #ffffff } /* Name */
-    .mi { color: #92ef3f; font-weight: bold } /* Literal.Number.Integer */
-    .l { color: #ffffff } /* Literal */
-    .x { color: #ffffff } /* Other */
-    .p { color: #ffffff } /* Punctuation */
-    .m { color: #92ef3f; font-weight: bold } /* Literal.Number */
-    .s { color: #0086d2 } /* Literal.String */
-    .w { color: #888888 } /* Text.Whitespace */
-    .il { color: #92ef3f; font-weight: bold } /* Literal.Number.Integer.Long */
++ You can find pygments' css syntax in the PYGMENTS.rst
 
 + To get the leatest entry you just have to do the following in a template::
 
