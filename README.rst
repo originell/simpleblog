@@ -38,15 +38,14 @@ You can specify the following options in your settings.py:
     - **CATEGORIES**
                    If True, category support will be enabled.
                    *Default:* True
-
-*Note:* If you don't want categories you need to set CATEGORIES to False **before** the initial syncdb. Otherwise you'll need perform the sql changes manually or by using one of the nice db altering utilities for django (django-evolution_, South_, dmigration_,...)
-
     - **MARKDOWN**
                 If True, this will enable Markdown markup language.
                 *Default:* True
     - **MARKDOWN_EXTS**
                 A list containing available markdown extensions_
                 *Default:* ['codehilite', 'tables']
+
+*Note:* If you don't want categories you need to set CATEGORIES to False **before** the initial syncdb. Otherwise you'll need perform the sql changes manually or by using one of the nice db altering utilities for django (django-evolution_, South_, dmigration_,...)
 
 Help
 ====
