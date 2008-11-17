@@ -12,7 +12,7 @@ MARKDOWN_EXTS = getattr(settings, 'MARKDOWN_EXTS',
 if TAGGING:
     # thx to jezdez
     try:
-        tagging = get_app("tagging")
+        tagging = get_app('tagging')
         from tagging.fields import TagField
         TAGFIELD_HELP = _('Separate tags with spaces, ' \
                           'put quotes around multiple-word tags.')
@@ -39,7 +39,7 @@ if MARKDOWN:
     try:
         import markdown
     except ImportError:
-        print _("Using markdown markup requires the python markdown module")
+        print _('Using markdown markup requires the python markdown module')
 
 class Entry(models.Model):
     ''' A single (simple) blog entry '''
