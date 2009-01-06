@@ -52,7 +52,7 @@ Help
 
 + Here_ you can read how to use syntax highlighting in a post
 
-+ You can find pygments' css syntax in the PYGMENTS.rst
++ See how to generate a css for pygment's here_
 
 + To get the leatest entry you just have to do the following in a template::
 
@@ -70,3 +70,4 @@ Help
 .. _markdown: http://www.freewisdom.org/projects/python-markdown/
 .. _extensions: http://www.freewisdom.org/projects/python-markdown/Available_Extensions
 .. _Here: http://www.freewisdom.org/projects/python-markdown/CodeHilite
+.. _here: http://pygments.org/docs/cmdline/#generating-styles
