@@ -68,7 +68,7 @@ Help
 
 + Check if an entry has been modified
 
-    {% if [varname].was_modified %}..{% endif %}
+    {% ifchanged [varname].modified %}..{% endifchanged %}
 
 .. _pygments: http://pygments.org/
 .. _docutils: http://docutils.sourceforge.net/
