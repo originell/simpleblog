@@ -16,7 +16,7 @@ class EntryNode(template.Node):
 
 class GetLatestEntry:
     """
-    Returns 10 newest Objekte.
+    Returns newest entry.
 
     Usage::
 

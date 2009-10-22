@@ -43,14 +43,20 @@ You can specify the following options in your settings.py:
                 *Default:* True
     - **MARKDOWN_EXTS**
                 A list containing available markdown extensions_
-                *Default:* ['codehilite', 'tables']
+                *Default:* ['codehilite',]
+    - **COMMENTS**
+                If True enables django's comments framework
+                *Default:* True
+    - **COMMENTS_NOTIFICATION**
+                If True enables email notification about new comments
+                *Default:* False
 
 *Note:* If you don't want categories you need to set CATEGORIES to False **before** the initial syncdb. Otherwise you'll need perform the sql changes manually or by using one of the nice db altering utilities for django (django-evolution_, South_, dmigration_,...)
 
 Help
 ====
 
-+ Here_ you can read how to use syntax highlighting in a post
++ How_ to use syntax highlighting in a post
 
 + See how to generate a css for pygment's here_
 
@@ -59,6 +65,10 @@ Help
     {% load latest %}
     ....
     {% latest_entry as [varname] %}
+
++ Check if an entry has been modified
+
+    {% if [varname].was_modified %}..{% endif %}
 
 .. _pygments: http://pygments.org/
 .. _docutils: http://docutils.sourceforge.net/
@@ -69,5 +79,5 @@ Help
 .. _dmigration: http://code.google.com/p/dmigrations/
 .. _markdown: http://www.freewisdom.org/projects/python-markdown/
 .. _extensions: http://www.freewisdom.org/projects/python-markdown/Available_Extensions
-.. _Here: http://www.freewisdom.org/projects/python-markdown/CodeHilite
+.. _How: http://www.freewisdom.org/projects/python-markdown/CodeHilite
 .. _here: http://pygments.org/docs/cmdline/#generating-styles

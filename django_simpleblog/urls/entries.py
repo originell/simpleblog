@@ -1,5 +1,8 @@
 from django.conf.urls.defaults import *
 from django_simpleblog.models import Entry
+from django.conf import settings
+
+COMMENTS = getattr(settings, 'COMMENTS', True)
 
 entry_info_dict = {'queryset': Entry.objects.all(),
                    'date_field': 'created',}
@@ -15,3 +18,7 @@ urlpatterns = patterns('django.views.generic.date_based',
     (r'^(?P<year>\d{4})/(?P<month>\w{3})/(?P<day>\w{2})/(?P<slug>[-\w]+)/$',
         'object_detail', entry_info_dict, 'blog_entry_detail'),
 )
+
+if COMMENTS:
+    urlpatterns += patterns('',
+        (r'^comments/', include('django.contrib.comments.urls')),)

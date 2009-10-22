@@ -7,7 +7,8 @@ TAGGING = getattr(settings, 'TAGGING', True)
 CATEGORIES = getattr(settings, 'CATEGORIES', True)
 MARKDOWN = getattr(settings, 'MARKDOWN', True)
 MARKDOWN_EXTS = getattr(settings, 'MARKDOWN_EXTS',
-                        ['codehilite', 'tables'])
+                        ['codehilite',])
+COMMENTS = getattr(settings, 'COMMENTS', True)
 
 if TAGGING:
     # thx to jezdez
@@ -18,7 +19,7 @@ if TAGGING:
                           'put quotes around multiple-word tags.')
     except ImproperlyConfigured:
         from django.models import CharField as TagField
-        TAGFIELD_HELP = _('Django-tagging was not found, ' \
+        TAGFIELD_HELP = _('django-tagging was not found, ' \
                           'tags will be treated as plain text.')
 
 if CATEGORIES:
@@ -39,7 +40,7 @@ if MARKDOWN:
     try:
         import markdown
     except ImportError:
-        print _('Using markdown markup requires the python markdown module')
+        print _('Usage of markdown markup requires the python markdown module')
 
 class Entry(models.Model):
     ''' A single (simple) blog entry '''
@@ -58,6 +59,9 @@ class Entry(models.Model):
     if TAGGING:
         tags = TagField(help_text=TAGFIELD_HELP, max_length=255,
                         verbose_name=_('tags'))
+
+    if COMMENTS:
+        enable_comments = models.BooleanField()
 
     class Meta:
         verbose_name = _('Entry')
