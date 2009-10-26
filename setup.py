@@ -15,7 +15,11 @@ setup(
 
     author = 'Luis Nell',
     author_email = 'luis@originell.org',
-    packages = ['django_simpleblog',],
+    packages = [
+        'django_simpleblog',
+        'django_simpleblog.templatetags',
+        'django_simpleblog.urls'
+    ],
     classifiers = [
         'Development Status :: 4 - Beta',
         'Framework :: Django',
