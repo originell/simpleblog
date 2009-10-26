@@ -9,7 +9,7 @@ README = read('README.rst')
 setup(
     name = 'django_simpleblog',
     version = '0.1',
-    url = 'http://github.com/originell/django_simpleblog',
+    url = 'http://github.com/originell/simpleblog',
     description = 'A hopefully simple blog engine written with django',
     long_description = README,
 
