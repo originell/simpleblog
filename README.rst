@@ -68,7 +68,7 @@ Help
 
 + Check if an entry has been modified
 
-    {% ifchanged [varname].modified %}..{% endifchanged %}
+    {% ifnotequal object.created object.modified %}..{% endifnotequal %}
 
 .. _pygments: http://pygments.org/
 .. _docutils: http://docutils.sourceforge.net/
