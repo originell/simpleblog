@@ -80,8 +80,7 @@ class Entry(models.Model):
     def get_absolute_url(self):
         return ('blog_entry_detail', (),
                                     {'year': self.created.strftime('%Y'),
-                                     'month': self.created.strftime('%b'). \
-                                              lower(),
+                                     'month': self.created.strftime('%m'),
                                      'day': self.created.strftime('%d'),
                                      'slug': self.slug },)
     get_absolute_url = models.permalink(get_absolute_url)
