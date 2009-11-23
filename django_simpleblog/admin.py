@@ -11,6 +11,16 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name',)
 admin.site.register(Category, CategoryAdmin)
 
+if COMMENTS:
+    class EntryModerator(CommentModerator):
+        email_notification = COMMENTS_NOTIFICATION
+        enable_field = 'enable_comments'
+    moderator.register(Entry, EntryModerator)
+    
+    def enable_comments(modeladmin, request, queryset):
+        queryset.update(enable_comments=True)
+    enable_comments.short_description = 'Enable comments'
+
 class EntryAdmin(admin.ModelAdmin):
     save_on_top = True
     list_per_page = 25
@@ -19,6 +29,9 @@ class EntryAdmin(admin.ModelAdmin):
     date_hierarchy = 'created'
 
     prepopulated_fields = {'slug': ('title',)}
+
+    if COMMENTS:
+        actions = [enable_comments]
 
     def save_form(self, request, form, change):
         instance = form.save(commit=False)
@@ -30,9 +43,3 @@ class EntryAdmin(admin.ModelAdmin):
 
         return instance
 admin.site.register(Entry, EntryAdmin)
-
-if COMMENTS:
-    class EntryModerator(CommentModerator):
-        email_notification = COMMENTS_NOTIFICATION
-        enable_field = 'enable_comments'
-    moderator.register(Entry, EntryModerator)
