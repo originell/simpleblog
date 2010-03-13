@@ -62,9 +62,11 @@ Comment Moderation
 
 We now have a simple option to moderate an entry based on it's content. Thanks to django\'s very flexible comments framework, it's a breeze (see admin.py):
 
+::
+
         class EntryModerator(CommentModerator):
             email_notification = COMMENTS_NOTIFICATION
-            enable_field = 'enable_comments'
+            enable_field = \'enable_comments\'
 
             if COMMENTS_MODERATION:
                 def moderate(self, comment, content_object, request):
@@ -85,6 +87,8 @@ A little tip for everyone who wants the user, or rather say spambot, to know tha
 I bet you already customised *comments/posted.html* to fit your need. Notice that you actually have full access to the comment itself inside this template!
 
 Here's what I did:
+
+::
 
     {% if comment.is_public %}
         <h1>{% trans "Thank you for your comment" %}.</h1><br />
