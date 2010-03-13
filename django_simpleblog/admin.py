@@ -6,6 +6,8 @@ from models import Entry, Category
 
 COMMENTS = getattr(settings, 'COMMENTS', True)
 COMMENTS_NOTIFICATION = getattr(settings, 'COMMENTS_NOTIFICATION', False)
+COMMENTS_MODERATION = getattr(settings, 'COMMENTS_MODERATION', True)
+
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name',)
@@ -15,6 +17,15 @@ if COMMENTS:
     class EntryModerator(CommentModerator):
         email_notification = COMMENTS_NOTIFICATION
         enable_field = 'enable_comments'
+
+        if COMMENTS_MODERATION:
+            def moderate(self, comment, content_object, request):
+                if self.auto_moderate_field and self.moderate_after:
+                    if self._get_delta(datetime.datetime.now(), getattr(content_object, self.auto_moderate_field)).days >= self.moderate_after:
+                        return True
+                if 'a href' in comment.comment:
+                    return True
+                return False
     moderator.register(Entry, EntryModerator)
     
     def enable_comments(modeladmin, request, queryset):

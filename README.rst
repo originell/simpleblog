@@ -50,8 +50,49 @@ You can specify the following options in your settings.py:
     - **COMMENTS_NOTIFICATION**
                 If True enables email notification about new comments
                 *Default:* False
+    - **COMMENTS_MODERATION**
+                If True, a comment containing the <a href=..> html tag, will NOT be displayed on the website.
+                It's is_public attribute will therefore be set to False.
+                *Default:* True
 
 *Note:* If you don't want categories you need to set CATEGORIES to False **before** the initial syncdb. Otherwise you'll need perform the sql changes manually or by using one of the nice db altering utilities for django (django-evolution_, South_, dmigration_,...)
+
+Comment Moderation
+==================
+
+We now have a simple option to moderate an entry based on it's content. Thanks to django\'s very flexible comments framework, it's a breeze (see admin.py):
+
+        class EntryModerator(CommentModerator):
+            email_notification = COMMENTS_NOTIFICATION
+            enable_field = 'enable_comments'
+
+            if COMMENTS_MODERATION:
+                def moderate(self, comment, content_object, request):
+                    if self.auto_moderate_field and self.moderate_after:
+                        if self._get_delta(datetime.datetime.now(), getattr(content_object, self.auto_moderate_field)).days >= self.moderate_after:
+                            return True
+                    if 'a href' in comment.comment:
+                        return True
+                    return False
+        moderator.register(Entry, EntryModerator)
+
+As you can see right now we simply check for 'a href' in a comment. This is the most used html tag I've seen in spam.
+Anyway, you may have noticed that you can actually have access to the comment object, content_object and request. This of course enables a hell lot of ways to refine spam protection (or you just tie Akismet in at this point).
+
+*Note:* "if 'a href' in" is **not** case insensitive. If you want case insensitivity you either have to do lower(comment.comment) or use a regular expression.
+
+A little tip for everyone who wants the user, or rather say spambot, to know that his/her comment has been moderated.
+I bet you already customised *comments/posted.html* to fit your need. Notice that you actually have full access to the comment itself inside this template!
+
+Here's what I did:
+
+    {% if comment.is_public %}
+        <h1>{% trans "Thank you for your comment" %}.</h1><br />
+        <a href="{{ comment.get_absolute_url }}">View it!</a>
+    {% else %}
+        <h1>Your comment has been moderated because of denied usage of HTML</h1><br />
+        It must be reviewed and approved by the admin.
+    {% endif %}
 
 Help
 ====
