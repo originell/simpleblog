@@ -47,10 +47,8 @@ class EntryAdmin(admin.ModelAdmin):
     def save_form(self, request, form, change):
         instance = form.save(commit=False)
         if not change:
-            instance.created = datetime.datetime.now()
             instance.modified = instance.created
         else:
             instance.modified = datetime.datetime.now()
-
         return instance
 admin.site.register(Entry, EntryAdmin)

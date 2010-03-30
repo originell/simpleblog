@@ -2,6 +2,7 @@ from django.db import models
 from django.db.models import get_app
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
+import datetime
 
 TAGGING = getattr(settings, 'TAGGING', True)
 CATEGORIES = getattr(settings, 'CATEGORIES', True)
@@ -45,7 +46,7 @@ if MARKDOWN:
 class Entry(models.Model):
     ''' A single (simple) blog entry '''
 
-    created = models.DateTimeField(editable=False)
+    created = models.DateTimeField(editable=False, default=datetime.datetime.now)
     modified = models.DateTimeField(editable=False)
 
     title = models.CharField(_('title'), max_length=79)
