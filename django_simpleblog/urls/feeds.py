@@ -11,8 +11,8 @@ if CATEGORIES:
 
 
 default_pattern = patterns('',
-        (r'^latest/rss/$', RSSLatestEntries),
-        (r'^latest/atom/$', AtomLatestEntries),
+        (r'^latest/rss/$', RSSLatestEntries()),
+        (r'^latest/atom/$', AtomLatestEntries()),
 )
 
 try:
