@@ -15,6 +15,7 @@ FEED_DEFAULTS = {'latest': {'title': 'Simpleblog Latest 10 Entries',
                             'description': 'Simpleblog Newsfeed',
                             'length': 10,
                             'item_descr_length': 48,}
+                }
 if CATEGORIES:
     FEED_DEFAULTS['category'] = {'title': 'Simpleblog Categoryfeed',
                                  'link': '/category/',
