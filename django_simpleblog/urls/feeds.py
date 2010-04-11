@@ -1,6 +1,7 @@
 from django.conf.urls.defaults import *
 from django.conf import settings
-from django_simpleblog.feeds import *
+from django_simpleblog.feeds import RSSCategoryFeed, AtomCategoryFeed, \
+                                    RSSLatestEntries, AtomLatestEntries
 
 CATEGORIES = getattr(settings, 'CATEGORIES', True)
 if CATEGORIES:
