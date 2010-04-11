@@ -6,7 +6,7 @@ django-simpleblog
 is
 --
 
-the blogengine behind [origiNell](http://www.originell.org/). My aim is to keep it, as the name suggests, simple, fast and easy to integrate/customize.
+the blogengine behind origiNell_. My aim is to keep it, as the name suggests, simple, fast and easy to integrate/customize.
 
 Requirements
 ============
@@ -161,3 +161,4 @@ Help
 .. _extensions: http://www.freewisdom.org/projects/python-markdown/Available_Extensions
 .. _How: http://www.freewisdom.org/projects/python-markdown/CodeHilite
 .. _here: http://pygments.org/docs/cmdline/#generating-styles
+.. _origiNell: http://www.originell.org/
