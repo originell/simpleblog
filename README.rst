@@ -6,7 +6,7 @@ django-simpleblog
 is
 --
 
-a hopefully simple blog app without too much bloat. Maybe it turns into an *uber-bloated* app, let's see what I'll do with it :-) Basically it's just a practice project.
+the blogengine behind [origiNell](http://www.originell.org/). My aim is to keep it, as the name suggests, simple, fast and easy to integrate/customize.
 
 Requirements
 ============
@@ -17,21 +17,28 @@ Requirements
 and of course
 
 + python_ >= 2.3
-+ django_ >= 1.0
++ django_ >= 1.2
+
+Installation
+============
+
+Use the included setup.py
+
+::
+
+    python setup.py install
+
+Then open up your project's urls.py and include this app's urls.
+For example:
+
+::
+
+    (r'^blog/', include('django_simpleblog.urls.entries')),
 
 Options
 =======
 
 You can specify the following options in your settings.py:
-    - **FEEDTITLE**
-                  Sets the title for both RSS and Atom feeds.
-                  *Default:* 'Simpleblog latest 10 entries'
-    - **FEEDDESCR**
-                  Sets the description for both RSS and Atom feeds
-                  *Default:* ''Simpleblog rss news feed'
-    - **FEEDLENGTH**
-                   Sets the number of items available in both RSS and Atom feeds.
-                   *Default:* 10
     - **TAGGING**
                 If True, tags will be enabled. There's a check if django-tagging is installed. If so, then we'll use that as tagfield, otherwise tags will be handled as plain-text.
                 *Default:* True
@@ -56,6 +63,34 @@ You can specify the following options in your settings.py:
                 *Default:* True
 
 *Note:* If you don't want categories you need to set CATEGORIES to False **before** the initial syncdb. Otherwise you'll need perform the sql changes manually or by using one of the nice db altering utilities for django (django-evolution_, South_, dmigration_,...)
+
+RSS/Atom Feeds
+==============
+
+To enable RSS/Atom feeds simply add the following to your urls.py:
+
+::
+
+    (r'^feeds/', include('django_simpleblog.urls.feeds')),
+
+This will enable two feeds: latest entries and if you set CATEGORIES to true, a category based feed.
+
+Feeds can be customized via the FEED_SETTINGS dictionary in your settings.py. Here are the default settings. If you didn't activate CATEGORIES, ignore the 'category' part.
+
+::
+
+    FEED_SETTINGS = {'latest': {'title': 'Simpleblog Latest 10 Entries',
+                                'link':  '/news/',
+                                'description': 'Simpleblog Newsfeed',
+                                'length': 10,
+                                'item_descr_length': 48,},
+                     'category': {'title': 'Simpleblog Categoryfeed',
+                                  'link': '/category/',
+                                  'description': 'Feed For Category "%s"'},
+                    }
+
+Note that %s in category title and description will be replaced by the categoryname, if specified.
+                    
 
 Comment Moderation
 ==================
