@@ -21,22 +21,22 @@ class EnumNode(template.Node):
         for item in queryset:
             if i < iter_len:
                 if urlify:
-                    output += '"<a href="%s">%s</a>", ' % (item.get_absolute_url(),
+                    output += '&ldquo;<a href="%s">%s</a>&rdquo;, ' % (item.get_absolute_url(),
                                                            item)
                 else:
-                    output += '"%s", ' % item
+                    output += '&ldquo;%s&rdquo;, ' % item
             elif iter_len == i:
                 if urlify:
-                    output += '"<a href="%s">%s</a>" and ' % (item.get_absolute_url(),
+                    output += '&ldquo;<a href="%s">%s</a>&rdquo; and ' % (item.get_absolute_url(),
                                                               item)
                 else:
-                    output += '"%s" and ' % item
+                    output += '&ldquo;%s&rdquo; and ' % item
             else:
                 if urlify:
-                    output += '"<a href="%s">%s</a>"' % (item.get_absolute_url(),
+                    output += '&ldquo;<a href="%s">%s</a>&rdquo;' % (item.get_absolute_url(),
                                                          item)
                 else:
-                    output += '"%s"' % item
+                    output += '&ldquo;%s&rdquo;' % item
             i += 1
         return output
 
