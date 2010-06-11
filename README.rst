@@ -140,7 +140,7 @@ Help
 
 + See how to generate a css for pygment's here_
 
-+ To get the leatest entry you just have to do the following in a template::
++ To get the latest entry you just have to do the following in a template::
 
     {% load latest %}
     ....
