@@ -132,6 +132,9 @@ Here's what I did:
         <h1>Your comment has been moderated because of denied usage of HTML</h1><br />
         It must be reviewed and approved by the admin.
     {% endif %}
+    
+If you need more advanced spam protection, I suggest you take a look at akismet integration in django. There are a lot of blog posts about it.
+In case you want to outsource comments, I highly recommend you take a look at Disqus_ in combination with django-disqus_. I have also blogged about the comment migration.
 
 Help
 ====
@@ -162,3 +165,5 @@ Help
 .. _How: http://www.freewisdom.org/projects/python-markdown/CodeHilite
 .. _here: http://pygments.org/docs/cmdline/#generating-styles
 .. _origiNell: http://www.originell.org/
+.. _Disqus: http://disq.us/
+.. _django-disqus: http://github.com/arthurk/django-disqus
