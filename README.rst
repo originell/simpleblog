@@ -142,7 +142,7 @@ Templatetags
 human_enum
 ----------
 
-Creates a humanized enumeration of a specified queryset.
+Creates a humanized enumeration of a specified queryset. Uses typographically correct ambidextrous quotes.
 
 Usage::
 
@@ -156,6 +156,14 @@ The __unicode__() method in your model should return some kind of title
 of your object.
 If you enable the option to build urls, your model needs a get_absolute_url()
 method.
+
+Example::
+
+    Recently he wrote {% human_enum Entry.objects.all() %}.
+
+Gives you::
+
+    Recently he wrote “Title 1”, “Title 2”, “Title 3” and “Title 4”.
 
 Help
 ====
