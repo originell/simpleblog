@@ -136,6 +136,27 @@ Here's what I did:
 If you need more advanced spam protection, I suggest you take a look at akismet integration in django. There are a lot of blog posts about it.
 In case you want to outsource comments, I highly recommend you take a look at Disqus_ in combination with django-disqus_. I have also blogged about the comment migration.
 
+Templatetags
+============
+
+human_enum
+----------
+
+Creates a humanized enumeration of a specified queryset.
+
+Usage::
+
+    {% human_enum YourQueryset %}
+
+or if you want to have urls to the object::
+
+    {% human_enum YourQueryset urlify %}
+
+The __unicode__() method in your model should return some kind of title
+of your object.
+If you enable the option to build urls, your model needs a get_absolute_url()
+method.
+
 Help
 ====
 
