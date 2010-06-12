@@ -1,7 +1,7 @@
 from django.contrib.syndication.views import Feed
 from django.utils.feedgenerator import Atom1Feed
 from django.shortcuts import get_object_or_404
-from django.template.defaultfilters import truncatewords
+from django.template.defaultfilters import truncatewords_html
 from django.conf import settings
 
 from models import Entry
