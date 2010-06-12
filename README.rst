@@ -164,6 +164,15 @@ Example::
 Gives you::
 
     Recently he wrote “Title 1”, “Title 2”, “Title 3” and “Title 4”.
+    
+latest
+------
+
+Returns the newest entry.
+
+Usage::
+
+    {% latest_entry as entry %}
 
 Help
 ====
