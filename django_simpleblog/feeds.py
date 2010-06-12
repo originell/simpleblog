@@ -35,7 +35,7 @@ class RSSLatestEntries(Feed):
         return item.created
 
     def item_description(self, item):
-        return truncatewords(item.body, FEED_SETTINGS['latest']['item_descr_length'])
+        return truncatewords_html(item.body_html, FEED_SETTINGS['latest']['item_descr_length'])
 
 class AtomLatestEntries(RSSLatestEntries):
     feed_type = Atom1Feed
@@ -68,7 +68,7 @@ if CATEGORIES:
             return item.created
 
         def item_description(self, item):
-            return truncatewords(item.body, FEED_SETTINGS['latest']['item_descr_length'])
+            return truncatewords_html(item.body_html, FEED_SETTINGS['latest']['item_descr_length'])
 
     class AtomCategoryFeed(RSSCategoryFeed):
         feed_type = Atom1Feed
