@@ -66,7 +66,7 @@ class HumanEnumeration(object):
             raise template.TemplateSyntaxError, \
                 "'%s' statement requires at least one argument" % self.tag_name
 
-        if type(tokens[1]) != QuerySet:
+        if isinstance(tokens[1], QuerySet):
             raise template.TemplateSyntaxError, \
                 "First argument in '%s' must be a QuerySet" % self.tag_name
 
